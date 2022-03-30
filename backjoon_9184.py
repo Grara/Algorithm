@@ -20,4 +20,4 @@ while True:
     if a == -1 and b==-1 and c==-1:
         break
 
-    print(w(a,b,c))
+    print('w({0}, {1}, {2}) = {3}'.format(a,b,c,w(a,b,c)))

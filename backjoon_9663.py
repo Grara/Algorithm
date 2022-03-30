@@ -23,9 +23,9 @@ def Collocate(x): #배치
     
     else:
         for i in range(n):
-            if i in row: #해당 열에 놓인 퀸이 있다면
+            if i in row: #i열에 놓인 퀸이 있다면
                 continue
-            if x > 0 and row[x-1] - 1 <= i <= row[x-1] + 1: #해당행 위 행의 아래와 대각선에 i가 위치하면
+            if x > 0 and row[x-1] - 1 <= i <= row[x-1] + 1: #바로 위행의 퀸의 아래와 대각선에 i열이 위치하면
                 continue
             row.append(i) #x행의 i열에 퀸 임시배치
             if Check(x): #임시배치한 퀸이 확정가능한지 체크
