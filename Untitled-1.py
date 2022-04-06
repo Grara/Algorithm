@@ -1,23 +1,22 @@
-MAX = 21
-dp = [[[0]*MAX for i in range(MAX)] for j in range(MAX)]
+n, k = map(int, input().split())
 
-def w(a,b,c):
-    if a <= 0 or b <= 0 or c <= 0:
-        return 1
-    
-    if a>20 or b>20 or c>20:
-        return w(20,20,20)
+thing = [[0,0]]
+d = [[0]*(k+1) for _ in range(n+1)]
 
-    if dp[a][b][c]:
-        return dp[a][b][c]
-    
-    dp[a][b][c] = w(a-1,b,c) + w(a-1,b-1,c) + w(a-1,b,c-1) - w(a-1,b-1,c-1)
-    return dp[a][b][c]
+for i in range(n):
+    thing.append(list(map(int, input().split())))
 
-while True:
-    a , b, c = map(int, input().split())
+for i in range(1, n+1):
+    for j in range(1, k+1):
+        w = thing[i][0]
+        v = thing[i][1]
 
-    if a == -1 and b==-1 and c==-1:
-        break
+        if j < w:
+            d[i][j] = d[i-1][j]
+        else:
+            d[i][j] = max(d[i-1][j], d[i-1][j-w]+v)
 
-    print(w(a,b,c))
+print(d[n][k])
+
+for i in range(len(d)):
+    print(d[i])
