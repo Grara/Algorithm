@@ -1,22 +1,43 @@
-n, k = map(int, input().split())
 
-thing = [[0,0]]
-d = [[0]*(k+1) for _ in range(n+1)]
+def solution(s):
+    ans = float('inf')
+    n = len(s)
+    for i in range(1, n // 2 + 1):
+        
+        for j in range(0, i):
+            r = ''
+            if j != 0:
+                r = s[:j]
+            cnt = 1
+            tmp = s[j:j+i]
+            tail = ''
+            for k in range(j + i, n, i):
+                
+                if k + i > n:
+                    tail += s[k:]
+                    break
+                if s[k:k+i] == tmp:
+                    cnt += 1
+                else:
+                    if cnt == 1:
+                        r += tmp
+                    else:
+                        r += str(cnt) + tmp
+                    
+                    cnt = 1
+                    tmp = s[k:k+i]
 
-for i in range(n):
-    thing.append(list(map(int, input().split())))
+            if cnt == 1:
+                r += tmp
+            else:
+                r += str(cnt) + tmp
+            r += tail
+            print(r)
+            if ans > len(r):
+                ans = len(r)
 
-for i in range(1, n+1):
-    for j in range(1, k+1):
-        w = thing[i][0]
-        v = thing[i][1]
+    return ans
 
-        if j < w:
-            d[i][j] = d[i-1][j]
-        else:
-            d[i][j] = max(d[i-1][j], d[i-1][j-w]+v)
+m = input()
 
-print(d[n][k])
-
-for i in range(len(d)):
-    print(d[i])
+print(solution(m))
