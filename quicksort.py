@@ -26,8 +26,6 @@ def QuickSort(arr, low, high):
         else: #그외에
             arr[left], arr[right] = arr[right], arr[left] 
 
-
-    
     QuickSort(arr, low, right-1)
     QuickSort(arr, right+1, high)
 

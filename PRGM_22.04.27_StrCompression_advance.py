@@ -24,14 +24,15 @@ def solution(s):
                 
                 cnt = 1
                 tmp = s[k:k+i]
+
         if cnt == 1:
             r += tmp
         else:
             r += str(cnt) + tmp
+
         r += tail
-        print(r)
-        if ans > len(r):
-            ans = len(r)
+        
+        ans = min(ans, len(r))
 
     return ans
 
