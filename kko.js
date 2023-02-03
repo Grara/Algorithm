@@ -10,7 +10,7 @@ const criteria = new Date(2023, 0, 30);
  
 const regex = /\d{8} 근무/;
 
-
+ddddd
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
   if(room=="전기 카톡방"){
     return;
