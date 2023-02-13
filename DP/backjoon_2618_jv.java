@@ -26,7 +26,7 @@ public class Main{
         N = Integer.parseInt(br.readLine());
         W = Integer.parseInt(br.readLine());
         
-        //사건 좌표 초기화
+        //사건 위치 초기화
         for(int i = 1; i <= W; i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
 
@@ -44,8 +44,9 @@ public class Main{
         	
             int one_remain = distance(1, idx_one, i);
             	
-            //둘다 시작위치이면서 마지막 사건까지 해결하는 최단거리 - 첫번째 차가 시작위치에서 첫번째 사건으로 이동하는 거리 
-            //= 첫 경찰차가 첫번째 사건 위치이면서 두번째가 시작위치일 경우 해결하는 최단거리
+            //i = 1일 경우
+            //둘다 시작위치이면서 마지막 사건까지 해결하는 최단거리 - 첫번째 차가 시작위치에서 첫번째 사건으로 이동하는 거리와
+            //첫 경찰차가 첫번째 사건 위치이면서 두번째가 시작위치일 경우 해결하는 최단거리가 같다면
             //이 경우 첫번째 사건은 첫번째 경찰차가 해결한 것이다.
             if(dp[idx_one][idx_two] - one_remain == dp[i][idx_two]){
                 idx_one = i;

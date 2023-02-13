@@ -49,13 +49,17 @@ public class Main{
         time[N] = 0;
         pq.add(new MoveInfo(N, 0));
 
+        //BFS실행
         while(!pq.isEmpty()){
+            
             MoveInfo cur = pq.poll();
             
+            //K도착하면 종료
             if(cur.point == K){                
                 break;
             }
             
+            //위치 범위를 벗어나면 무시
             if(cur.point < 0 || cur.point >1400000) continue;
             
             //현재위치 + 1
