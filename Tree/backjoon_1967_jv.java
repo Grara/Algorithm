@@ -41,16 +41,15 @@ public class Main{
         }
     	
         //노드 연결 입력 받기
-        for(int i = 0; i < n; i++){
+        //트리에서 간선의 갯수는 [노드의 갯수 -1]개
+        for(int i = 0; i < n-1; i++){
             st= new StringTokenizer(br.readLine());
-            int start = Integer.parseInt(st.nextToken()); //출발점
-            while(true){
-                int target = Integer.parseInt(st.nextToken()); //도착지
-                if(target == -1) //-1을 입력받으면 종료
-                    break;
-                int w = Integer.parseInt(st.nextToken()); //간선 가중치
-                graph.get(start).add(new Node(target, w));
-            }
+            int parent = Integer.parseInt(st.nextToken()); //부모노드
+            int child = Integer.parseInt(st.nextToken()); //자식노드
+            int w = Integer.parseInt(st.nextToken()); //가중치
+
+            graph.get(parent).add(new Node(child, w));
+            graph.get(child).add(new Node(parent, w));
         }
 
         
