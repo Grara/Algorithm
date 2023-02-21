@@ -2,11 +2,9 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Stream;
 
-//문제명 : 트리의 지름
+//문제명 : 트리순회
 //트리문제
-//가장 거리가 먼 정점 찾기
-//트리는 모두 이어져있다
-//모든 트리로부터 공통적으로 먼 정점을 찾은 후 그 정점에서 가장 먼 정점을 찾으면됨
+//전위 순회, 중위 순회, 후위 순회를 한 결과를 출력하라
 
 class Node{
     int right;
