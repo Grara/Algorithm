@@ -6,11 +6,6 @@ import java.util.stream.Stream;
 //정점의 갯수와 간선이 주어졌을 때 트리의 갯수를 구하라, 트리란 사이클이 없는 연결을 의미한다.
 //DFS 이용
 
-class Node{
-    
-    
-}
-
 public class Main{
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
