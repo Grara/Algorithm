@@ -2,8 +2,8 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Stream;
 
-//문제명 : 집합의 표현
-//유니온&파인드 기초 문제
+//문제명 : 여행 가자
+//유니온&파인드 문제
 
 public class Main{
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,33 +16,41 @@ public class Main{
 
     public static void main(String[] args)throws Exception{
     	
-        st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(br.readLine());
+        int m = Integer.parseInt(br.readLine());
+        
 
-        parent = new int[n+1]; //parent[x] = y : x의 부모는 y다
+        parent = new int[n+1]; //parent[x] : x의 최상위 부모
 
         for(int i = 0; i <= n; i++){ //자기 자신을 부모로 설정
             parent[i] = i;
         }
         
-        for(int i = 0; i < m; i++){
+        for(int i = 1; i <= n; i++){
             st = new StringTokenizer(br.readLine());
-            int oper = Integer.parseInt(st.nextToken());
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-
-            if(oper == 0){
-                union(a, b);
-            }else{
-                if(isSameParent(a, b))
-                    bw.append("YES\n");
-                else
-                	bw.append("NO\n");
+            for(int j = 1; j <= n; j++){
+                int isConnect = Integer.parseInt(st.nextToken());
+                if(isConnect == 1) //1이면 합쳐줘야 함
+                    union(i, j);
+            }
+        }
+        
+        st = new StringTokenizer(br.readLine());
+        int start = Integer.parseInt(st.nextToken());
+        int commonParent = parent[start];
+        
+        String ans = "YES";
+        
+        for(int i = 1; i < m; i++){
+            int cur = Integer.parseInt(st.nextToken());
+            if(!isSameParent(commonParent, cur)){
+                ans = "NO";
+                break;
             }
         }
 
-        bw.close();
+        System.out.println(ans);
+        
 
     } //End of main
     
