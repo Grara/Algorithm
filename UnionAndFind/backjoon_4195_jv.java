@@ -64,7 +64,7 @@ public class Main{
         b = find(b);
         
         if(a != b){
-            if(a.name.hashCode() > b.name.hashCode()){ //이름을 해쉬코드로 변환 후 비교
+            if(a.hashCode() > b.hashCode()){ //이름을 해쉬코드로 변환 후 비교
             	b.networkCnt += a.parent.networkCnt; //네트워크수 병합
             	a.parent = b; //부모 설정, 윗라인의 코드와 위치가 바뀌면 정상적으로 동작 안함
             }
