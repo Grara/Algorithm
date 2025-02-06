@@ -31,7 +31,6 @@ public class Main {
 	}
 	
 	static int tsp(int x, int check) {
-        System.out.println(Integer.toString(x) + "/" + Integer.toString(check));
 
 		// 모든 도시 방문 완료
 		if(check == allVisitBit) {
