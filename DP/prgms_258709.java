@@ -1,3 +1,9 @@
+//프로그래머스 - 주사위 고르기
+//n개의 육면체 주사위가 주어진다. 두사람이 각자 n/2개의 주사위를 가져가고 주사위를 던진다.
+//던져서 나온 눈의 합으로 승부한다.
+//승률을 최대로 높이는 주사위 조합을 구해라
+//주사위의 눈은 랜덤한 숫자, 중복도 존재
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -93,7 +99,6 @@ public class Solution {
             }
 
             int sumBit = currBit | (1 << i); //현재 주사위를 추가한 비트
-            //currCnt += 1; //조합에 사용된 주사위 수 추가
 
             Map<Integer, Integer> newCases = new HashMap<>(); //현재 조합에 현재 주사위를 조합한 새로운 경우의 수
             
@@ -106,7 +111,7 @@ public class Solution {
             }
             combDp.put(sumBit, newCases); //구한 경우의 수를 dp에 추가
 
-            if(currCnt + 1 >= (dice.length / 2)) {
+            if(currCnt + 1  == (dice.length / 2)) {
                 useCases.put(sumBit, newCases); //조합에 사용한 주사위가 n / 2개를 넘어가면 대결용 map에 추가
                 continue;
             }
