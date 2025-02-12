@@ -17,7 +17,7 @@ public class Solution {
     int[][] dice;
     int[] visited; //조합 방문여부
     Map<Integer, Map<Integer, Integer>> combDp = new HashMap<>(); //dp용맵 Map<조합 비트, Map<눈의 합, 눈의 합의 갯수>>
-    Map<Integer, Map<Integer, Integer>> useCases = new HashMap<>(); //dp중에서 n-2개 주사위를 사용한 조합만 저장
+    Map<Integer, Map<Integer, Integer>> useCases = new HashMap<>(); //dp중에서 n/2개 주사위를 사용한 조합만 저장
 
     public int[] solution(int[][] dice1) {
         dice = dice1;
@@ -91,7 +91,6 @@ public class Solution {
             currCases = new HashMap<>();
             currCases.put(0, 1);
         }
-
         
         for(int i = 0; i < dice.length; i++){
             if((currBit & (1 << i)) != 0) { //이미 현재 조합에 현재 주사위가 포함됐으면 스킵
